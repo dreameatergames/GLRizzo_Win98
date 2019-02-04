@@ -1,0 +1,151 @@
+# depslib dependency file v1.0
+1548194107 source:f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\cd_null.c
+	"quakedef.h"
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\quakedef.h
+	<math.h>
+	<string.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<setjmp.h>
+	"common.h"
+	"bspfile.h"
+	"vid.h"
+	"sys.h"
+	"zone.h"
+	"mathlib.h"
+	"wad.h"
+	"draw.h"
+	"cvar.h"
+	"screen.h"
+	"net.h"
+	"protocol.h"
+	"cmd.h"
+	"sbar.h"
+	"sound.h"
+	"render.h"
+	"client.h"
+	"progs.h"
+	"server.h"
+	"gl_model.h"
+	"model.h"
+	"d_iface.h"
+	"input.h"
+	"world.h"
+	"keys.h"
+	"console.h"
+	"view.h"
+	"menu.h"
+	"crc.h"
+	"cdaudio.h"
+	"glquake.h"
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\common.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\bspfile.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\vid.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\sys.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\zone.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\mathlib.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\wad.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\draw.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\cvar.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\screen.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\net.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\protocol.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\cmd.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\sbar.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\sound.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\render.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\client.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\progs.h
+	"pr_comp.h"
+	"progdefs.h"
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\pr_comp.h
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\progdefs.h
+	"progdefs.q2"
+	"progdefs.q1"
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\progdefs.q2
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\progdefs.q1
+
+1548194109 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\server.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\gl_model.h
+	"modelgen.h"
+	"spritegn.h"
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\modelgen.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	"cmdlib.h"
+	"scriplib.h"
+	"trilib.h"
+	"lbmlib.h"
+	"mathlib.h"
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\spritegn.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	"cmdlib.h"
+	"scriplib.h"
+	"dictlib.h"
+	"trilib.h"
+	"lbmlib.h"
+	"mathlib.h"
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\model.h
+	"modelgen.h"
+	"spritegn.h"
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\d_iface.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\input.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\world.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\keys.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\console.h
+
+1548194110 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\view.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\menu.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\crc.h
+
+1548194107 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\cdaudio.h
+
+1548194108 f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\glquake.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1548194107 source:f:\user files\documents\dreamcast\rizzo island\source code\glrizzo_win98\source\cd_win.c
+	<windows.h>
+	"quakedef.h"
+
