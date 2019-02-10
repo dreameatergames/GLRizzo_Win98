@@ -8,7 +8,7 @@ of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
 
 See the GNU General Public License for more details.
 
@@ -19,9 +19,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // comndef.h  -- general definitions
 
+#if !defined BYTE_DEFINED
+typedef unsigned char 		byte;
+#define BYTE_DEFINED 1
+#endif
 
-//typedef unsigned char 		byte;
-
+#undef true
+#undef false
 
 typedef enum {false, true}	qboolean;
 

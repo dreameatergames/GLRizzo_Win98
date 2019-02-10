@@ -272,7 +272,7 @@ void M_ToggleMenu_f (void)
 /* MAIN MENU */
 
 int	m_main_cursor;
-#define	MAIN_ITEMS	5
+#define	MAIN_ITEMS	4
 
 
 void M_Menu_Main_f (void)
@@ -338,18 +338,14 @@ void M_Main_Key (int key)
 			break;
 
 		case 1:
-			M_Menu_MultiPlayer_f ();
-			break;
-
-		case 2:
 			M_Menu_Options_f ();
 			break;
 
-		case 3:
+		case 2:
 			M_Menu_Help_f ();
 			break;
 
-		case 4:
+		case 3:
 			M_Menu_Quit_f ();
 			break;
 		}
@@ -1037,7 +1033,7 @@ again:
 /* OPTIONS MENU */
 
 #ifdef _WIN32
-#define	OPTIONS_ITEMS	14
+#define	OPTIONS_ITEMS	10
 #else
 #define	OPTIONS_ITEMS	13
 #endif
@@ -1053,7 +1049,7 @@ void M_Menu_Options_f (void)
 	m_entersound = true;
 
 #ifdef _WIN32
-	if ((options_cursor == 13) && (modestate != MS_WINDOWED))
+	if ((options_cursor == 10) && (modestate != MS_WINDOWED))
 	{
 		options_cursor = 0;
 	}
@@ -1112,33 +1108,13 @@ void M_AdjustSliders (int dir)
 		Cvar_SetValue ("volume", volume.value);
 		break;
 
-	case 8:	// allways run
-		if (cl_forwardspeed.value > 200)
-		{
-			Cvar_SetValue ("cl_forwardspeed", 200);
-			Cvar_SetValue ("cl_backspeed", 200);
-		}
-		else
-		{
-			Cvar_SetValue ("cl_forwardspeed", 400);
-			Cvar_SetValue ("cl_backspeed", 400);
-		}
-		break;
-
-	case 9:	// invert mouse
+	case 8:	// invert mouse
 		Cvar_SetValue ("m_pitch", -m_pitch.value);
 		break;
 
-	case 10:	// lookspring
-		Cvar_SetValue ("lookspring", !lookspring.value);
-		break;
-
-	case 11:	// lookstrafe
-		Cvar_SetValue ("lookstrafe", !lookstrafe.value);
-		break;
 
 #ifdef _WIN32
-	case 13:	// _windowed_mouse
+	case 9:	// _windowed_mouse
 		Cvar_SetValue ("_windowed_mouse", !_windowed_mouse.value);
 		break;
 #endif
@@ -1208,20 +1184,11 @@ void M_Options_Draw (void)
 	r = volume.value;
 	M_DrawSlider (220, 88, r);
 
-	M_Print (16, 96,  "            Always Run");
-	M_DrawCheckbox (220, 96, cl_forwardspeed.value > 200);
-
-	M_Print (16, 104, "          Invert Mouse");
-	M_DrawCheckbox (220, 104, m_pitch.value < 0);
-
-	M_Print (16, 112, "            Lookspring");
-	M_DrawCheckbox (220, 112, lookspring.value);
-
-	M_Print (16, 120, "            Lookstrafe");
-	M_DrawCheckbox (220, 120, lookstrafe.value);
+	M_Print (16, 96, "          Invert Mouse");
+	M_DrawCheckbox (220, 96, m_pitch.value < 0);
 
 	if (vid_menudrawfn)
-		M_Print (16, 128, "         Video Options");
+		M_Print (16, 104, "         Video Options");
 
 #ifdef _WIN32
 	if (modestate == MS_WINDOWED)
@@ -1258,7 +1225,7 @@ void M_Options_Key (int k)
 		case 2:
 			Cbuf_AddText ("exec default.cfg\n");
 			break;
-		case 12:
+		case 9:
 			M_Menu_Video_f ();
 			break;
 		default:
@@ -1290,19 +1257,19 @@ void M_Options_Key (int k)
 		break;
 	}
 
-	if (options_cursor == 12 && vid_menudrawfn == NULL)
+	if (options_cursor == 10 && vid_menudrawfn == NULL)
 	{
 		if (k == K_UPARROW)
-			options_cursor = 11;
+			options_cursor = 9;
 		else
 			options_cursor = 0;
 	}
 
 #ifdef _WIN32
-	if ((options_cursor == 13) && (modestate != MS_WINDOWED))
+	if ((options_cursor == 10) && (modestate != MS_WINDOWED))
 	{
 		if (k == K_UPARROW)
-			options_cursor = 12;
+			options_cursor = 9;
 		else
 			options_cursor = 0;
 	}
@@ -1584,45 +1551,45 @@ qboolean	wasInMenus;
 char *quitMessage [] = 
 {
 /* .........1.........2.... */
-  "  Are you gonna quit    ",
-  "  this game just like   ",
-  "   everything else?     ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
   "                        ",
  
-  " Milord, methinks that  ",
-  "   thou art a lowly     ",
-  " quitter. Is this true? ",
-  "                        ",
-
-  " Do I need to bust your ",
-  "  face open for trying  ",
-  "        to quit?        ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
   "                        ",
 
-  " Man, I oughta smack you",
-  "   for trying to quit!  ",
-  "     Press Y to get     ",
-  "      smacked out.      ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
+
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
  
-  " Press Y to quit like a ",
-  "   big loser in life.   ",
-  "  Press N to stay proud ",
-  "    and successful!     ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
  
-  "   If you press Y to    ",
-  "  quit, I will summon   ",
-  "  Satan all over your   ",
-  "      hard drive!       ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
  
-  "  Um, Asmodeus dislikes ",
-  " his children trying to ",
-  " quit. Press Y to return",
-  "   to your Tinkertoys.  ",
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
  
-  "  If you quit now, I'll ",
-  "  throw a blanket-party ",
-  "   for you next time!   ",
-  "                        "
+  "       Quit Game?       ",
+  "      Yes (Enter)?      ",
+  "       No (Esc)?        ",
+  "                        ",
 };
 #endif
 
@@ -3065,16 +3032,8 @@ void M_Draw (void)
 		M_Save_Draw ();
 		break;
 
-	case m_multiplayer:
-		M_MultiPlayer_Draw ();
-		break;
-
 	case m_setup:
 		M_Setup_Draw ();
-		break;
-
-	case m_net:
-		M_Net_Draw ();
 		break;
 
 	case m_options:
@@ -3095,30 +3054,6 @@ void M_Draw (void)
 
 	case m_quit:
 		M_Quit_Draw ();
-		break;
-
-	case m_serialconfig:
-		M_SerialConfig_Draw ();
-		break;
-
-	case m_modemconfig:
-		M_ModemConfig_Draw ();
-		break;
-
-	case m_lanconfig:
-		M_LanConfig_Draw ();
-		break;
-
-	case m_gameoptions:
-		M_GameOptions_Draw ();
-		break;
-
-	case m_search:
-		M_Search_Draw ();
-		break;
-
-	case m_slist:
-		M_ServerList_Draw ();
 		break;
 	}
 
@@ -3157,18 +3092,6 @@ void M_Keydown (int key)
 		M_Save_Key (key);
 		return;
 
-	case m_multiplayer:
-		M_MultiPlayer_Key (key);
-		return;
-
-	case m_setup:
-		M_Setup_Key (key);
-		return;
-
-	case m_net:
-		M_Net_Key (key);
-		return;
-
 	case m_options:
 		M_Options_Key (key);
 		return;
@@ -3187,30 +3110,6 @@ void M_Keydown (int key)
 
 	case m_quit:
 		M_Quit_Key (key);
-		return;
-
-	case m_serialconfig:
-		M_SerialConfig_Key (key);
-		return;
-
-	case m_modemconfig:
-		M_ModemConfig_Key (key);
-		return;
-
-	case m_lanconfig:
-		M_LanConfig_Key (key);
-		return;
-
-	case m_gameoptions:
-		M_GameOptions_Key (key);
-		return;
-
-	case m_search:
-		M_Search_Key (key);
-		break;
-
-	case m_slist:
-		M_ServerList_Key (key);
 		return;
 	}
 }

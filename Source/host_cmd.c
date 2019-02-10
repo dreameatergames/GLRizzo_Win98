@@ -514,7 +514,7 @@ void Host_Savegame_f (void)
 	sprintf (name, "%s/%s", com_gamedir, Cmd_Argv(1));
 	COM_DefaultExtension (name, ".sav");
 	
-	Con_Printf ("Saving game to %s...\n", name);
+	Con_Printf ("Saving game\n");
 	f = fopen (name, "w");
 	if (!f)
 	{
@@ -589,7 +589,7 @@ void Host_Loadgame_f (void)
 // been used.  The menu calls it before stuffing loadgame command
 //	SCR_BeginLoadingPlaque ();
 
-	Con_Printf ("Loading game from %s...\n", name);
+	Con_Printf ("Loading game\n");
 	f = fopen (name, "r");
 	if (!f)
 	{
@@ -773,7 +773,7 @@ int LoadGamestate(char *level, char *startspot)
 
 	sprintf (name, "%s/%s.gip", com_gamedir, level);
 	
-	Con_Printf ("Loading game from %s...\n", name);
+	Con_Printf ("Loading game\n");
 	f = fopen (name, "r");
 	if (!f)
 	{
@@ -948,8 +948,7 @@ void Host_Name_f (void)
 	
 void Host_Version_f (void)
 {
-	Con_Printf ("Version %4.2f\n", VERSION);
-	Con_Printf ("Exe: "__TIME__" "__DATE__"\n");
+
 }
 
 #ifdef IDGODS
@@ -1817,10 +1816,8 @@ void Host_Startdemos_f (void)
 	c = Cmd_Argc() - 1;
 	if (c > MAX_DEMOS)
 	{
-		Con_Printf ("Max %i demos in demoloop\n", MAX_DEMOS);
-		c = MAX_DEMOS;
+
 	}
-	Con_Printf ("%i demo(s) in loop\n", c);
 
 	for (i=1 ; i<c+1 ; i++)
 		strncpy (cls.demos[i-1], Cmd_Argv(i), sizeof(cls.demos[0])-1);

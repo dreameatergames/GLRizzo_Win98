@@ -563,112 +563,7 @@ void Sbar_DrawInventory (void)
 	}
 
 // weapons
-	for (i=0 ; i<7 ; i++)
-	{
-		if (cl.items & (IT_SHOTGUN<<i) )
-		{
-			time = cl.item_gettime[i];
-			flashon = (int)((cl.time - time)*10);
-			if (flashon >= 10)
-			{
-				if ( cl.stats[STAT_ACTIVEWEAPON] == (IT_SHOTGUN<<i)  )
-					flashon = 1;
-				else
-					flashon = 0;
-			}
-			else
-				flashon = (flashon%5) + 2;
 
-         Sbar_DrawPic (i*24, -16, sb_weapons[flashon][i]);
-
-			if (flashon > 1)
-				sb_updates = 0;		// force update to remove flash
-		}
-	}
-
-// MED 01/04/97
-// hipnotic weapons
-    if (hipnotic)
-    {
-      int grenadeflashing=0;
-      for (i=0 ; i<4 ; i++)
-      {
-         if (cl.items & (1<<hipweapons[i]) )
-         {
-            time = cl.item_gettime[hipweapons[i]];
-            flashon = (int)((cl.time - time)*10);
-            if (flashon >= 10)
-            {
-               if ( cl.stats[STAT_ACTIVEWEAPON] == (1<<hipweapons[i])  )
-                  flashon = 1;
-               else
-                  flashon = 0;
-            }
-            else
-               flashon = (flashon%5) + 2;
-
-            // check grenade launcher
-            if (i==2)
-            {
-               if (cl.items & HIT_PROXIMITY_GUN)
-               {
-                  if (flashon)
-                  {
-                     grenadeflashing = 1;
-                     Sbar_DrawPic (96, -16, hsb_weapons[flashon][2]);
-                  }
-               }
-            }
-            else if (i==3)
-            {
-               if (cl.items & (IT_SHOTGUN<<4))
-               {
-                  if (flashon && !grenadeflashing)
-                  {
-                     Sbar_DrawPic (96, -16, hsb_weapons[flashon][3]);
-                  }
-                  else if (!grenadeflashing)
-                  {
-                     Sbar_DrawPic (96, -16, hsb_weapons[0][3]);
-                  }
-               }
-               else
-                  Sbar_DrawPic (96, -16, hsb_weapons[flashon][4]);
-            }
-            else
-               Sbar_DrawPic (176 + (i*24), -16, hsb_weapons[flashon][i]);
-            if (flashon > 1)
-               sb_updates = 0;      // force update to remove flash
-         }
-      }
-    }
-
-	if (rogue)
-	{
-    // check for powered up weapon.
-		if ( cl.stats[STAT_ACTIVEWEAPON] >= RIT_LAVA_NAILGUN )
-		{
-			for (i=0;i<5;i++)
-			{
-				if (cl.stats[STAT_ACTIVEWEAPON] == (RIT_LAVA_NAILGUN << i))
-				{
-					Sbar_DrawPic ((i+2)*24, -16, rsb_weapons[i]);
-				}
-			}
-		}
-	}
-
-// ammo counts
-	for (i=0 ; i<4 ; i++)
-	{
-		sprintf (num, "%3i",cl.stats[STAT_SHELLS+i] );
-		if (num[0] != ' ')
-			Sbar_DrawCharacter ( (6*i+1)*8 - 2, -24, 18 + num[0] - '0');
-		if (num[1] != ' ')
-			Sbar_DrawCharacter ( (6*i+2)*8 - 2, -24, 18 + num[1] - '0');
-		if (num[2] != ' ')
-			Sbar_DrawCharacter ( (6*i+3)*8 - 2, -24, 18 + num[2] - '0');
-	}
 
 	flashon = 0;
    // items
@@ -1034,7 +929,7 @@ void Sbar_Draw (void)
 		}
 
 		Sbar_DrawNum (248, 0, cl.stats[STAT_AMMO], 3,
-					  cl.stats[STAT_AMMO] <= 10);
+					  0);
 	}
 
 	if (vid.width > 320) {
@@ -1259,7 +1154,6 @@ void Sbar_MiniDeathmatchOverlay (void)
 		y += 8;
 	}
 }
-
 /*
 ==================
 Sbar_IntermissionOverlay
@@ -1287,25 +1181,7 @@ void Sbar_IntermissionOverlay (void)
 	pic = Draw_CachePic ("gfx/inter.lmp");
 	Draw_TransPic (0, 56, pic);
 
-// time
-	dig = cl.completed_time/60;
-	Sbar_IntermissionNumber (160, 64, dig, 3, 0);
-	num = cl.completed_time - dig*60;
-	Draw_TransPic (234,64,sb_colon);
-	Draw_TransPic (246,64,sb_nums[0][num/10]);
-	Draw_TransPic (266,64,sb_nums[0][num%10]);
-
-	Sbar_IntermissionNumber (160, 104, cl.stats[STAT_SECRETS], 3, 0);
-	Draw_TransPic (232,104,sb_slash);
-	Sbar_IntermissionNumber (240, 104, cl.stats[STAT_TOTALSECRETS], 3, 0);
-
-	Sbar_IntermissionNumber (160, 144, cl.stats[STAT_MONSTERS], 3, 0);
-	Draw_TransPic (232,144,sb_slash);
-	Sbar_IntermissionNumber (240, 144, cl.stats[STAT_TOTALMONSTERS], 3, 0);
-
 }
-
-
 /*
 ==================
 Sbar_FinaleOverlay
