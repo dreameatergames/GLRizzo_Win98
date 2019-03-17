@@ -144,7 +144,7 @@ void Cbuf_Execute (void)
 {
 	int		i;
 	char	*text;
-	char	line[1024];
+	char	line[4024];
 	int		quotes;
 	
 	while (cmd_text.cursize)

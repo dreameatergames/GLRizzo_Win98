@@ -1473,18 +1473,9 @@ int COM_FindFile (char *filename, int *handle, FILE **file)
 }
 
 
-/*
-===========
-COM_OpenFile
-
-filename never has a leading slash, but may contain directory walks
-returns a handle and a length
-it may actually be inside a pak file
-===========
-*/
-int COM_OpenFile (char *filename, int *handle)
+int COM_OpenFile (char *filename, int *handle, searchpath_t **foundpath)	// 2001-09-12 Returning from which searchpath a file was loaded by Maddes
 {
-	return COM_FindFile (filename, handle, NULL);
+	return COM_FindFile (filename, handle, NULL, foundpath);	// 2001-09-12 Returning from which searchpath a file was loaded by Maddes
 }
 
 /*
@@ -1495,9 +1486,9 @@ If the requested file is inside a packfile, a new FILE * will be opened
 into the file.
 ===========
 */
-int COM_FOpenFile (char *filename, FILE **file)
+int COM_FOpenFile (char *filename, FILE **file, searchpath_t **foundpath)	// 2001-09-12 Returning from which searchpath a file was loaded by Maddes
 {
-	return COM_FindFile (filename, NULL, file);
+	return COM_FindFile (filename, NULL, file, foundpath);	// 2001-09-12 Returning from which searchpath a file was loaded by Maddes
 }
 
 /*
